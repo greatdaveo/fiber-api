@@ -18,6 +18,7 @@ func setupRoutes(app *fiber.App) {
 	// User endpoint
 	app.Post("/api/users", routes.CreateUser)
 	app.Get("/api/users", routes.GetUsers)
+	app.Get("/api/users/:id", routes.GetUser)
 }
 
 func main() {
