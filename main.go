@@ -17,6 +17,7 @@ func setupRoutes(app *fiber.App) {
 	app.Get("/api", welcome)
 	// User endpoint
 	app.Post("/api/users", routes.CreateUser)
+	app.Get("/api/users", routes.GetUsers)
 }
 
 func main() {
@@ -25,6 +26,6 @@ func main() {
 	app := fiber.New()
 
 	setupRoutes(app)
-	
+
 	log.Fatal(app.Listen(":3000"))
 }
