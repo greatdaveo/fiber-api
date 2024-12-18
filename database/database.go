@@ -4,6 +4,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/greatdaveo/fiber-api/models"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -27,7 +28,8 @@ func ConnectDb() {
 	db.Logger = logger.Default.LogMode(logger.Info)
 	log.Println("Running Migrations")
 
-	// TODO: Add migrations
+	// Add migrations
+	db.AutoMigrate(&models.User{}, &models.Product{}, &models.Order{})
 
 	Database = DbInstance{Db: db}
 }
